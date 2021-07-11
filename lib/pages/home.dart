@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
 			drawer: const CustomDrawer(),
 			body: childrenList[currentTab], 
 			floatingActionButton: FloatingActionButton(
-				onPressed: () => print('Add New News'),
+				onPressed: () => {},
 				child: const Icon(
 					Icons.add,
 					size: 36,

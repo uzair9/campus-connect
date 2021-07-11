@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:campus_connect/db/local_db.dart';
 
 class SignIn extends StatefulWidget {
 	const SignIn({ Key? key }) : super(key: key);
@@ -9,17 +10,8 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
 	final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-	dynamic campusID;
-	dynamic password;
-	
-	Map database = {
-		'22100031': {
-			'pass': '123'
-		}, 
-		'22100032': {
-			'pass': '123'
-		}
-	};
+	var campusID = '';
+	var password = '';
 	
 	@override
 	Widget build(BuildContext context) {
@@ -39,17 +31,17 @@ class _SignInState extends State<SignIn> {
 								decoration: const InputDecoration(
 									hintText: 'Enter LUMS ID'
 								), 
-								validator: (String? ID) {
-									if (ID == null || ID.isEmpty) {
+								validator: (String? id) {
+									if (id == null || id.isEmpty) {
 										return('LUMS ID is Required');
 									}
-									if (ID.length != 8) {
+									if (id.length != 8) {
 										return('LUMS ID Should Be 8 Characters Long');
 									}
-									if (!database.containsKey(ID)) {
+									if (!database['campusConnect']['enrolledStudents'].containsKey(id)) {
 										return('Not a Valid LUMS ID');
 									}
-									campusID = ID;
+									campusID = id;
 								},
 							),
 							const SizedBox(height: 10.0), 
@@ -61,8 +53,7 @@ class _SignInState extends State<SignIn> {
 									if (pass == null || pass.isEmpty) {
 										return('LUMS Password is Required');
 									}
-									if (database[campusID]['pass'] != pass) {
-										print(database[campusID]['pass']);
+									if (database['campusConnect']['enrolledStudents'][campusID]['password'] != pass) {
 										return('Password is Incorrect');
 									}
 									password = pass;
