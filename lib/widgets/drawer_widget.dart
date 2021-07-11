@@ -23,14 +23,14 @@ class CustomDrawer extends StatelessWidget {
 						),
 						),
 						Padding(
-							padding: EdgeInsets.fromLTRB(20, 20, 0, 10),
+							padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
 							child: Row(
 								children: [
-									Icon(
+									const Icon(
 										Icons.manage_accounts,
 										color: Colors.black,
 									),
-									SizedBox(width: 7),
+									const SizedBox(width: 7),
 									InkWell(
 										onTap: () => print('Profile'),
 										child: const Text('My Account'),
@@ -39,14 +39,14 @@ class CustomDrawer extends StatelessWidget {
 							),
 						),
 						Padding(
-							padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
+							padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
 							child: Row(
 								children: [
-									Icon(
+									const Icon(
 										Icons.people, 
 										color: Colors.black,
 									),
-									SizedBox(width: 7),
+									const SizedBox(width: 7),
 									InkWell(
 										onTap: () => print('About Us'),
 										child: const Text('About Us'),
@@ -54,19 +54,19 @@ class CustomDrawer extends StatelessWidget {
 								],
 							),
 						),
-						Spacer(),
-						Divider(
+						const Spacer(),
+						const Divider(
 							color: Colors.grey,
 						),
 						Padding(
-							padding: EdgeInsets.fromLTRB(20, 10, 0, 20),
+							padding: const EdgeInsets.fromLTRB(20, 10, 0, 20),
 							child: Row(
 								children: [
 									Icon(
 										Icons.lock, 
 										color: Colors.grey[700],
 									),
-									SizedBox(width: 7),
+									const SizedBox(width: 7),
 									InkWell(
 										onTap: () => print('Log Out'),
 										child: const Text('Log Out'),
