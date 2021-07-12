@@ -15,7 +15,7 @@ class CustomDrawer extends StatelessWidget {
 							decoration: BoxDecoration(
 								color: Colors.blue[100],
 							),
-							child: CircleAvatar(
+							child: const CircleAvatar(
 								backgroundImage: AssetImage('assets/images/logo.png'),
 								backgroundColor: Colors.transparent,
 							),

@@ -9,14 +9,13 @@ Uzair Afzal developed this app in the Summer break (2021) as a rising final-year
 
 The project spanned over 4 weeks (June - July, 2021), where, at first, he learnt the basics of Dart programming language and Flutter framework. Afterwards, he put all his learning into this one holistic project to create a real, tangible product out of it
 
-
 ### Features & Use Cases
 As Campus Connect focuses on decreasing the communication gap across the campuses, it has to offer the following features as mentioned below. Remember, each feature gets its own place in a separate sequence of screens, which is setup inside the bottom tab navigator on the home page of the application. In Campus Connect you can:
 
   * Share exciting university news, like the advent of the Facebook innovation Labs at LUMS or the appointment of new VC
   * Share upcoming event details, like the student council events or student society events
   * Make announcements for students and staff, like the new smoking policy on campus
-  * Initiate hashtags, like #OpenLUMS, and follow them up with loads of amazing posts
+  * Initiate hashtags, like #OpenLUMS, and react them to them by agreeing or disagreeing with the author
   * One can add new news, events, announcements and hashtags after logging in using Zambeel ID and password
   * Campus Connect also allows you to take a look at your profile as well as get information about the developers of the app through a drawer navigator, implemented    in the home
   * You can also choose to log out of the app at any time by clicking the log out button in the drawer

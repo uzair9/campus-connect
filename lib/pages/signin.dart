@@ -24,12 +24,12 @@ class _SignInState extends State<SignIn> {
 						mainAxisAlignment: MainAxisAlignment.center,
 						children: [
 							CircleAvatar(
-								backgroundImage: AssetImage('assets/images/logo.png'),
+								backgroundImage: const AssetImage('assets/images/logo.png'),
 								radius: MediaQuery.of(context).size.width * 0.30,
 								backgroundColor: Colors.transparent,
 							),
 							const SizedBox(height: 20.0),
-							Text('Sign In to Continue', 
+							Text('Campus Connect Sign In', 
 								style: TextStyle(
 									fontSize: 27, 
 									fontWeight: FontWeight.bold, 

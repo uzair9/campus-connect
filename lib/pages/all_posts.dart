@@ -6,7 +6,7 @@ class AllPosts extends StatelessWidget {
 	const AllPosts({ 
 		Key? key, 
 		required this.postType,
-		}) : super(key: key);
+	}) : super(key: key);
 	
 	final postType;
 
@@ -16,12 +16,12 @@ class AllPosts extends StatelessWidget {
 			return(Scaffold(
 				body: SingleChildScrollView(
 					child: Padding(
-						padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+						padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
 						child: Wrap(
-								direction: Axis.horizontal,
-								children: database['campusConnect'][postType].map<Widget>( (item) => 
-									CustomCard( title: item['title'], body: item['body'], author: item['author'], agree: 0, disagree: 0, date: item['date'], postType: postType, )).toList()
-							),
+							direction: Axis.horizontal,
+							children: database['campusConnect'][postType].map<Widget>( (item) => 
+								CustomCard( title: item['title'], body: item['body'], author: item['author'], agree: 0, disagree: 0, date: item['date'], postType: postType, )).toList()
+						),
 					),
 				),
 			));
@@ -29,12 +29,12 @@ class AllPosts extends StatelessWidget {
 		return(Scaffold(
 			body: SingleChildScrollView(
 				child: Padding(
-					padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+					padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
 					child: Wrap(
-							direction: Axis.horizontal,
-							children: database['campusConnect'][postType].map<Widget>( (item) => 
-								CustomCard( title: item['title'], body: item['body'], author: item['author'], date: item['date'], agree: item['agree'], disagree: item['disagree'], postType: postType, )).toList()
-						),
+						direction: Axis.horizontal,
+						children: database['campusConnect'][postType].map<Widget>( (item) => 
+							CustomCard( title: item['title'], body: item['body'], author: item['author'], date: item['date'], agree: item['agree'], disagree: item['disagree'], postType: postType, )).toList()
+					),
 				),
 			),
 		));

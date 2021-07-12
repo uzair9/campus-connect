@@ -66,16 +66,16 @@ class CustomCard extends StatelessWidget {
 									children: [
 										Row(
 											children: [
-												Icon(Icons.thumb_up, color: Colors.green,),
-												SizedBox(width: 10.0),
-												Text('$agree')
+												const Icon(Icons.thumb_up, color: Colors.green,),
+												const SizedBox(width: 10.0),
+												Text('$agree'), 
 											],
 										),
-										SizedBox(width: 15.0),
+										const SizedBox(width: 15.0),
 										Row(
 											children: [
-												Icon(Icons.thumb_down, color: Colors.red), 
-												SizedBox(width: 10.0),
+												const Icon(Icons.thumb_down, color: Colors.red), 
+												const SizedBox(width: 10.0),
 												Text('$disagree')
 											],
 										),

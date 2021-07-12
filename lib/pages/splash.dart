@@ -6,7 +6,7 @@ class Splash extends StatelessWidget {
 	const Splash({ Key? key }) : super(key: key);
 
 	void nextScreen(context) {
-		Future.delayed(Duration(seconds: 3), () => {
+		Future.delayed(const Duration(seconds: 3), () => {
 			Navigator.pushReplacementNamed(context, '/signin')
 		});
 	}
@@ -21,7 +21,7 @@ class Splash extends StatelessWidget {
 					mainAxisAlignment: MainAxisAlignment.center,
 					children: [
 						CircleAvatar(
-							backgroundImage: AssetImage('assets/images/logo.png'),
+							backgroundImage: const AssetImage('assets/images/logo.png'),
 							radius: MediaQuery.of(context).size.width * 0.45,
 							backgroundColor: Colors.transparent,
 						),
