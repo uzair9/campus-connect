@@ -23,10 +23,20 @@ class _SignInState extends State<SignIn> {
 					child: Column(
 						mainAxisAlignment: MainAxisAlignment.center,
 						children: [
-							const CircleAvatar(
-								radius: 100,
+							CircleAvatar(
+								backgroundImage: AssetImage('assets/images/logo.png'),
+								radius: MediaQuery.of(context).size.width * 0.30,
+								backgroundColor: Colors.transparent,
 							),
-							const SizedBox(height: 10.0,),
+							const SizedBox(height: 20.0),
+							Text('Sign In to Continue', 
+								style: TextStyle(
+									fontSize: 27, 
+									fontWeight: FontWeight.bold, 
+									color: Colors.blue[600]
+								),
+							),
+							const SizedBox(height: 20.0),
 							TextFormField(
 								decoration: const InputDecoration(
 									hintText: 'Enter LUMS ID'

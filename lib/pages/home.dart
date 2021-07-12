@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart'; 
 import 'package:campus_connect/widgets/drawer_widget.dart';
-import 'package:campus_connect/pages/all_news.dart';
-import 'package:campus_connect/pages/all_events.dart';
-import 'package:campus_connect/pages/all_hashtags.dart';
-import 'package:campus_connect/pages/all_announcements.dart';
+import 'package:campus_connect/pages/all_posts.dart';
 
 class Home extends StatefulWidget {
 	const Home({ Key? key }) : super(key: key);
@@ -15,15 +12,21 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 	int currentTab = 0;
 	String tabName = 'News';
-  final List<Widget> childrenList = [ const News(), const Events(), const Announcements(), const HashTags() ];
+  
+	final List <Widget> widgetList = 
+	[
+		const AllPosts(postType: 'news'),
+		const AllPosts(postType: 'events'),
+		const AllPosts(postType: 'announcements'),
+		const AllPosts(postType: 'hashtags')
+	];
+
+	final List<String> allTabNames = ['News', 'Events', 'Announcements', '#HashTags'];
 
 	void onTabTapped(int index) {
-   setState(() {
-     currentTab = index;
-		 if (index == 0) tabName = 'News';
-		 if (index == 1) tabName = 'Events';
-		 if (index == 2) tabName = 'Announcements';
-		 if (index == 3) tabName = '#HashTags';
+		setState(() {
+			currentTab = index;
+			tabName = allTabNames[currentTab];
 		});
  	}
 	
@@ -31,13 +34,14 @@ class _HomeState extends State<Home> {
 	Widget build(BuildContext context) {
 		return(Scaffold(
 			appBar: AppBar(
-				title: Text(tabName), 
+				title: Text(tabName),
 				centerTitle: true,
 			),
 			bottomNavigationBar: BottomNavigationBar(
 				type: BottomNavigationBarType.fixed,
 				currentIndex: currentTab,
 				onTap: onTabTapped, // automatically passes the index to the function
+				
 				items: const [
 					BottomNavigationBarItem(
 						icon: Icon(Icons.feed),
@@ -58,7 +62,8 @@ class _HomeState extends State<Home> {
 				],
 			),
 			drawer: const CustomDrawer(),
-			body: childrenList[currentTab], 
+			
+			body: widgetList[currentTab],
 			floatingActionButton: FloatingActionButton(
 				onPressed: () => {},
 				child: const Icon(

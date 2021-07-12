@@ -11,12 +11,14 @@ class CustomDrawer extends StatelessWidget {
 				children: [
 					Container(
 						height: 300,
-						child: const DrawerHeader(
+						child: DrawerHeader(
 							decoration: BoxDecoration(
-								color: Colors.blue,
-								
+								color: Colors.blue[100],
 							),
-							child: CircleAvatar(),
+							child: CircleAvatar(
+								backgroundImage: AssetImage('assets/images/logo.png'),
+								backgroundColor: Colors.transparent,
+							),
 						),
 					),
 					Padding(
