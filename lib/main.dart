@@ -12,7 +12,7 @@ void main() => runApp(MaterialApp(
 		'/': (context) => const Splash(), 
 		'/signin': (context) => const SignIn(), 
 		'/home': (context) => const Home(),
-		'/account': (context) => const Account(),
+		'/account': (context) => Account(),
 		'/about': (context) => const About(),
 		'/singleNews': (context) => const SingleNews(),
 	},

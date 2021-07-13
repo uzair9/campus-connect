@@ -5,11 +5,23 @@ Map database = {
 				'password': '123', 
 				'firstName': 'Uzair', 
 				'lastName': 'Afzal',
+				'creditsTaken': '97 / 130', 
+				'school': 'Sayed Babar Ali School of Sciences & Engineering (SBASSE)', 
+				'academicYear': '4', 
+				'graduationYear': '2022',
+				'cgpa': '3.527', 
+				'degreeProgram': 'Computer Science & Software Engineering'
 			}, 
 			'22100032': {
 				'password': '1234',
 				'firstName': 'Maria', 
 				'lastName': 'Rathore',
+				'creditsTaken': '65 / 130',
+				'school': 'Suleman Dawood School of Business (SDSB)', 
+				'academicYear': '3', 
+				'graduationYear': '2023',
+				'cgpa': '3.164', 
+				'degreeProgram': 'Accounting & Finance'
 			}, 
 		},
 		
