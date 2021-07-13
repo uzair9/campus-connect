@@ -2,11 +2,15 @@ Map database = {
 	'campusConnect': {
 		'enrolledStudents': {
 			'22100031': {
-				'password': '123'
+				'password': '123', 
+				'firstName': 'Uzair', 
+				'lastName': 'Afzal',
 			}, 
 			'22100032': {
-				'password': '1234'
-			}
+				'password': '1234',
+				'firstName': 'Maria', 
+				'lastName': 'Rathore',
+			}, 
 		},
 		
 		'news': [
@@ -68,7 +72,8 @@ Map database = {
 				'date': 'July 12, 2021', 
 				'body': 'LUMS students want their university to be opened. As all the other universities are opening up, why is LUMS still closed? \n\nIf students can follow SOPs at other universities and take in-person lectures, why can\'t we?',
 				'agree': 764,
-				'disagree': 3
+				'disagree': 24, 
+				'reactedBy': []
 			},
 			{
 				'id': 1,
@@ -77,7 +82,8 @@ Map database = {
 				'date': 'July 17, 2021', 
 				'body': 'I am not ready to believe that LUMS is charging us the same amount of money for making us sit in front of stupid Zoom. \n\nThe administration tells us that they are losing money during COVID-19. However, no lab equipment, ACs, water, gas and hostel electric equipment is being used these days. How can a university lose money in such a scenario? This is just impossible. \n\nWe demand reduction in our fee or the opening of campus!', 
 				'agree': 798, 
-				'disagree': 21
+				'disagree': 6, 
+				'reactedBy': []
 			},
 		]
 	}

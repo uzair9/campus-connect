@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart'; 
+import 'package:flutter/cupertino.dart';
+import 'package:campus_connect/helpers/alert_popup.dart';
 
 class CustomDrawer extends StatelessWidget {
 	const CustomDrawer({ Key? key }) : super(key: key);
@@ -67,8 +69,12 @@ class CustomDrawer extends StatelessWidget {
 								),
 								const SizedBox(width: 7),
 								InkWell(
-									onTap: () => {},
-									child: const Text('Log Out'),
+									onTap: () => alertPopUp(
+										'Sign Out?', 
+										'Are you sure you want to sign out of Campus Connect? Be notified that doing so will make you lose all your work in progress (if any)', 
+										context
+									),
+									child: const Text('Sign Out'),
 								),
 							],
 						),

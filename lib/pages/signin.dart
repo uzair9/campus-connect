@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:campus_connect/db/local_db.dart';
+import 'package:campus_connect/db/sessions.dart'; 
 
 class SignIn extends StatefulWidget {
 	const SignIn({ Key? key }) : super(key: key);
@@ -73,9 +74,11 @@ class _SignInState extends State<SignIn> {
 							ElevatedButton(
 								onPressed: () => {
 									if (formKey.currentState!.validate()) {
-										Navigator.pushReplacementNamed(context, '/home', arguments: {
-											'userID': campusID
-										})
+										activeUser['campusID'] = campusID,
+										activeUser['firstName'] = database['campusConnect']['enrolledStudents'][campusID]['firstName'],
+										activeUser['lastName'] = database['campusConnect']['enrolledStudents'][campusID]['lastName'],
+										
+										Navigator.pushReplacementNamed(context, '/home')
 									}
 								},
 								child: const Text('Continue')
