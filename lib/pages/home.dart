@@ -65,7 +65,9 @@ class _HomeState extends State<Home> {
 			
 			body: widgetList[currentTab],
 			floatingActionButton: FloatingActionButton(
-				onPressed: () => {},
+				onPressed: () => Navigator.pushNamed(context, '/newPost', arguments: {
+					'postType': allTabNames[currentTab]
+				}),
 				child: const Icon(
 					Icons.add,
 					size: 36,

@@ -5,6 +5,7 @@ import 'package:campus_connect/pages/my_account.dart';
 import 'package:campus_connect/pages/about_us.dart';
 import 'package:campus_connect/pages/splash.dart';
 import 'package:campus_connect/pages/single_post.dart';
+import 'package:campus_connect/pages/new_post.dart';
 
 void main() => runApp(MaterialApp( 
 	// initialRoute: '/signin',
@@ -15,5 +16,6 @@ void main() => runApp(MaterialApp(
 		'/account': (context) => Account(),
 		'/about': (context) => const About(),
 		'/singleNews': (context) => const SingleNews(),
+		'/newPost': (context) => const NewPost(),
 	},
 ));

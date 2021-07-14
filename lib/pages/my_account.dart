@@ -5,11 +5,15 @@ import 'package:campus_connect/db/sessions.dart';
 
 class Account extends StatelessWidget {
 	Account({ Key? key }) : super(key: key);
-
+	
 	String signedInPerson = activeUser['campusID'];
 
 	@override
 	Widget build(BuildContext context) {
+	
+	List<String> academicYearConversion = ['First-Year Student', 'Sophomore Student', 'Junior-Year Student', 'Final-Year Student'];
+		int academicYear = int.parse(database['campusConnect']['enrolledStudents'][signedInPerson]['academicYear']);
+		
 		return(Scaffold(
 			body: SafeArea(
 				child: Stack(
@@ -37,7 +41,13 @@ class Account extends StatelessWidget {
 													fontWeight: FontWeight.bold
 												)
 											),
-											const SizedBox(height: 30),
+											Row(
+												mainAxisAlignment: MainAxisAlignment.center,
+												children: [
+													Text('${ academicYearConversion[academicYear - 1] } at LUMS'),
+												]
+											),
+											const SizedBox(height: 23),
 											
 											MyCard(icon: const Icon(Icons.apartment, color: Colors.blue, size: 33), tileTile: 'School', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['school']),
 											MyCard(icon: const Icon(Icons.receipt_long, color: Colors.blue, size: 33), tileTile: 'Degree Program', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['degreeProgram']),

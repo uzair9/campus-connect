@@ -18,34 +18,36 @@ class SingleNews extends StatelessWidget {
 							),
 							Padding(
 								padding: EdgeInsets.fromLTRB(30, MediaQuery.of(context).size.width * 0.16, 30, 0.0),
-								child: Column(
-									children: [ 
-										Text('${args['title']} \n', 
-											style: TextStyle(
-												fontSize: 20, 
-												fontWeight: FontWeight.bold, 
-												color: Colors.blue[600]
+								child: Center(
+									child: Column(
+										children: [ 
+											Text('${args['title']} \n', 
+												style: TextStyle(
+													fontSize: 20, 
+													fontWeight: FontWeight.bold, 
+													color: Colors.blue[600]
+												)
+											), 
+											Text('${args['author']} \n', 
+												style: const TextStyle(
+													fontSize: 14, 
+													fontWeight: FontWeight.bold
+												)
+											),
+											Text('${args['date']} \n', 
+												style: const TextStyle(
+													fontSize: 14, 
+													fontWeight: FontWeight.bold
+												)
+											),
+											Text('${args['body']} \n', 
+												style: const TextStyle(
+													wordSpacing: 2,
+													fontSize: 17
+												)
 											)
-										), 
-										Text('${args['author']} \n', 
-											style: const TextStyle(
-												fontSize: 14, 
-												fontWeight: FontWeight.bold
-											)
-										),
-										Text('${args['date']} \n', 
-											style: const TextStyle(
-												fontSize: 14, 
-												fontWeight: FontWeight.bold
-											)
-										),
-										Text('${args['body']} \n', 
-											style: const TextStyle(
-												wordSpacing: 2,
-												fontSize: 17
-											)
-										)
-									]
+										]
+									),
 								),
 							)
 						],
