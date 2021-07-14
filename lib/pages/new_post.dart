@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:campus_connect/db/local_db.dart'; 
 import 'package:campus_connect/db/sessions.dart';
+import 'dart:math';
 
 class NewPost extends StatelessWidget {
 	const NewPost({ Key? key }) : super(key: key);
@@ -11,14 +12,18 @@ class NewPost extends StatelessWidget {
 		Map args = ModalRoute.of(context)!.settings.arguments as Map;
 		String date = DateTime.now().toString();
 		Map<String, Object> newData = {
+			'id': new Random().nextInt(1000000000) + 0,
 			'title': '',
 			'body': '',
 			'author': '${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['firstName'] } ${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['lastName'] }', 
 			'date': date.substring(0, date.indexOf(' ')),
+			'reactedBy': []
 		};
 
 		if (args['postType'] == '#HashTags') {
+			int randomId = (new Random().nextInt(1000000000) + 0);
 			newData = {
+				'id': randomId,
 				'title': '',
 				'body': '',
 				'author': '${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['firstName'] } ${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['lastName'] }', 
@@ -36,8 +41,7 @@ class NewPost extends StatelessWidget {
 		args['postType'] == '#HashTags' ? 'hashtags' : '';
 
 		final formKey = GlobalKey<FormState>();
-		
-		return(Scaffold(
+		return (Scaffold(
 			body: SafeArea(
 				child: Stack(
 					children: [
@@ -95,6 +99,7 @@ class NewPost extends StatelessWidget {
 				onPressed: () {
 					if (formKey.currentState!.validate()) {
 						database['campusConnect'][dbFieldToUpdate].insert(0, newData);
+						// Navigator.pop(context);
 						Navigator.pushReplacementNamed(context, '/home');
 					}
 				},
