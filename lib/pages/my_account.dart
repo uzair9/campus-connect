@@ -4,13 +4,12 @@ import 'package:campus_connect/db/local_db.dart';
 import 'package:campus_connect/db/sessions.dart';
 
 class Account extends StatelessWidget {
-	Account({ Key? key }) : super(key: key);
+	const Account({ Key? key }) : super(key: key);
 	
-	String signedInPerson = activeUser['campusID'];
-
 	@override
 	Widget build(BuildContext context) {
 	
+	String signedInPerson = activeUser['campusID'];
 	List<String> academicYearConversion = ['First-Year Student', 'Sophomore Student', 'Junior-Year Student', 'Final-Year Student'];
 		int academicYear = int.parse(database['campusConnect']['enrolledStudents'][signedInPerson]['academicYear']);
 		

@@ -10,7 +10,7 @@ class MyCard extends StatelessWidget {
 
   final String tileTile;
   final String tileSubtitle;
-	final icon;
+	final Icon icon;
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ class AllPosts extends StatelessWidget {
 		required this.postType,
 	}) : super(key: key);
 	
-	final postType;
+	final String postType;
 
 	@override
 	Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ class CustomDrawer extends StatelessWidget {
 			child: Column(
 				crossAxisAlignment: CrossAxisAlignment.stretch,
 				children: [
-					Container(
+					SizedBox(
 						height: 300,
 						child: DrawerHeader(
 							decoration: BoxDecoration(

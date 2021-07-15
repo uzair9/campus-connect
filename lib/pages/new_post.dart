@@ -12,7 +12,7 @@ class NewPost extends StatelessWidget {
 		Map args = ModalRoute.of(context)!.settings.arguments as Map;
 		String date = DateTime.now().toString();
 		Map<String, Object> newData = {
-			'id': new Random().nextInt(1000000000) + 0,
+			'id': Random().nextInt(1000000000) + 0,
 			'title': '',
 			'body': '',
 			'author': '${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['firstName'] } ${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['lastName'] }', 
@@ -21,9 +21,8 @@ class NewPost extends StatelessWidget {
 		};
 
 		if (args['postType'] == '#HashTags') {
-			int randomId = (new Random().nextInt(1000000000) + 0);
 			newData = {
-				'id': randomId,
+				'id': Random().nextInt(1000000000) + 0,
 				'title': '',
 				'body': '',
 				'author': '${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['firstName'] } ${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['lastName'] }', 

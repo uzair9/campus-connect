@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:campus_connect/helpers/thumbs_up_down.dart';
 
+// ignore: must_be_immutable
 class CustomCard extends StatefulWidget {
   
 	CustomCard({
@@ -81,7 +82,7 @@ class _CustomCardState extends State<CustomCard> {
 															}
 														});
 													}, 
-													icon: Icon(Icons.thumb_up, color: Colors.blue,)
+													icon: const Icon(Icons.thumb_up, color: Colors.blue,)
 												),
 												Text('${widget.agree}'), 
 											],
@@ -99,7 +100,7 @@ class _CustomCardState extends State<CustomCard> {
 															}
 														});
 													}, 
-													icon: Icon(Icons.thumb_down, color: Colors.red,)
+													icon: const Icon(Icons.thumb_down, color: Colors.red,)
 												),
 												Text('${widget.disagree}')
 											],
