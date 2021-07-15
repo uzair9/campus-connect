@@ -9,13 +9,24 @@ import 'package:campus_connect/pages/new_post.dart';
 
 void main() => runApp(MaterialApp( 
 	// initialRoute: '/home',
+
 	routes: {
 		'/': (context) => const Splash(), 
 		'/signin': (context) => const SignIn(), 
 		'/home': (context) => const Home(),
 		'/account': (context) => const Account(),
 		'/about': (context) => const About(),
-		'/singleNews': (context) => const SingleNews(),
+		'/singlePost': (context) => const SinglePost(),
 		'/newPost': (context) => const NewPost(),
 	},
 ));
+
+/*
+	Splash screen is shown at first, which is replaced with the sign in screen in 3 seconds.
+	The latter is also replaced (after successful signing in) with the home screen
+
+	After entering home, screens are always pushed and popped, not replaced.
+	Only in case of adding a new post (news, events, announcements, hashtags)
+	we push replacement (even after entering home). 
+	In all other cases, after entering home, we only push and pop screens and contexts
+*/

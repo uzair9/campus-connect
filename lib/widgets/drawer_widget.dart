@@ -2,6 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:campus_connect/helpers/alert_popup.dart';
 
+/*
+	This is the drawer of our application. The drawer is shown
+	on the home page and in all the tabs in the tab navigator. 
+
+	This doesn't really require any explanation. Just read code
+	and take a look at the drawer itself, and you will have no difficulty
+	understanding what is gowing on
+
+	One small reminder: the drawer is being imported and setup in the home
+	widget ( Home() in home.dart). The source code is written in this file
+	for separation of concerns and refactoring purposes
+*/
+
 class CustomDrawer extends StatelessWidget {
 	const CustomDrawer({ Key? key }) : super(key: key);
 

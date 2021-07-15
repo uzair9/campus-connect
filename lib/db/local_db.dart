@@ -1,3 +1,9 @@
+/*
+	If we extend the application and make Firebase connection, 
+	this local DB will be deleted. Rather, this Map will be 
+	populated with database's data (while showing the splash screen)
+*/
+
 Map database = {
 	'campusConnect': {
 		'enrolledStudents': {
@@ -25,11 +31,13 @@ Map database = {
 			}, 
 		},
 
-		// down below, in news, events and announcements arrays, reactedBy [] is just a dummy field
-		// it is not being used, but if we remove it then some type casting errors are thrown at the run
-		// time and the app crashes. Do not remove this field
+		/*
+			down below, in news, events and announcements arrays, reactedBy [] is just a dummy field
+			it is not being used, but if we remove it then some type casting errors are thrown at the run
+			time and the app crashes. Do not remove this field
 
-		// Error: Map<String, String> was expected but Map<String, Object> was obtained
+			Error: Map<String, String> was expected but Map<String, Object> was obtained
+		*/	
 		
 		'news': [
 			{

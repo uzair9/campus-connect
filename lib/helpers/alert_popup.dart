@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart'; // iOS library that Flutter uses
 import 'package:campus_connect/db/sessions.dart';
 
+/*
+	This is a reusable alert pop up. 
+	It is being used before signing out an active user.
+	Its usage can be extended. Notice the incoming title and 
+	msg params. They let us reuse this function
+*/
+
 void alertPopUp(String title, String msg, BuildContext context) {
 	showDialog(
 		context: context,

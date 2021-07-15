@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:campus_connect/helpers/thumbs_up_down.dart';
 
+/*
+	This widget builds that card for us which is being shown
+	in all the tabs of the tab navigator
+
+	Notice that we are conditionally returning code from here, i.e.,
+	we return a different card for hashtags and a different card for all 
+	others (news, events, announcements etc.)
+*/
+
 // ignore: must_be_immutable
 class CustomCard extends StatefulWidget {
   
@@ -23,6 +32,12 @@ class _CustomCardState extends State<CustomCard> {
 	@override
   Widget build(BuildContext context) {
 		if (widget.postType != 'hashtags') {
+			
+			/*
+				This is where we return Card for news, events and announcements. 
+				Notice that it does not have any thumbs up or thumbs down icons
+			*/
+			
 			return Padding(
 				padding: const EdgeInsets.fromLTRB(10, 10, 10, 0.0),
 				child: (Card(
@@ -32,7 +47,7 @@ class _CustomCardState extends State<CustomCard> {
 							crossAxisAlignment: CrossAxisAlignment.stretch,
 							children: [ 
 								TextButton(
-									onPressed: () => Navigator.pushNamed(context, '/singleNews', arguments: {
+									onPressed: () => Navigator.pushNamed(context, '/singlePost', arguments: {
 										'title': widget.title, 
 										'date': widget.date, 
 										'author': widget.author, 
@@ -48,6 +63,13 @@ class _CustomCardState extends State<CustomCard> {
 				)),
 			);
 		}
+
+		/*
+			This is where we return a different card (only for hashtags tab of the navigator).
+			Basically, we need some extra things in a hashtag-based card. 2 such things are 
+			the thumbs up button and the thumbs down button
+		*/
+
 		else if (widget.postType == 'hashtags') {
 			return Padding(
 				padding: const EdgeInsets.fromLTRB(10, 10, 10, 0.0),
@@ -58,7 +80,7 @@ class _CustomCardState extends State<CustomCard> {
 							crossAxisAlignment: CrossAxisAlignment.stretch,
 							children: [ 
 								TextButton(
-									onPressed: () => Navigator.pushNamed(context, '/singleNews', arguments: {
+									onPressed: () => Navigator.pushNamed(context, '/singlePost', arguments: {
 										'title': widget.title, 
 										'date': widget.date, 
 										'author': widget.author, 
@@ -74,6 +96,15 @@ class _CustomCardState extends State<CustomCard> {
 										Row(
 											children: [
 												IconButton(
+													
+													/*
+														We will wait here for what the function returns.
+														That will let us know if this user has already reacted to this hashtag or not. 
+														If the function returns false, it means that they have already reacted, so 
+														we are sure that no changes have been made to the DB. Hence, we do not make
+														any changes to our local state of the widget
+													*/
+													
 													onPressed: ()  async {
 														bool ret = await handleThumbsUpDown('up', widget.hashTagId);
 														setState(() {
@@ -91,6 +122,15 @@ class _CustomCardState extends State<CustomCard> {
 										Row(
 											children: [
 												IconButton(
+													
+													/*
+														We will wait here for what the function returns.
+														That will let us know if this user has already reacted to this hashtag or not. 
+														If the function returns false, it means that they have already reacted, so 
+														we are sure that no changes have been made to the DB. Hence, we do not make
+														any changes to our local state of the widget
+													*/
+													
 													onPressed: () async {
 														bool ret = await handleThumbsUpDown('down', widget.hashTagId);
 														setState( () {
@@ -113,6 +153,7 @@ class _CustomCardState extends State<CustomCard> {
 				)),
 			);
 		}
-		return Container();
+		return Container(); 
+		// returning this to avoid returning null from this widget
 	}
 }

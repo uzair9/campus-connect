@@ -1,4 +1,15 @@
 import 'package:flutter/material.dart'; 
+// import 'dart:html' as html;
+import 'package:universal_html/html.dart' as html;
+
+
+/*
+	One of the most simple and easy-to-understand screens. 
+	Just read the code, and you will know what is happening. 
+
+	Alongside reading the code, do take a peek at the screen itself, 
+	which will let you know better. The screen can be accessed from the drawer
+*/
 
 class About extends StatelessWidget {
 	const About({ Key? key }) : super(key: key);
@@ -39,6 +50,7 @@ class About extends StatelessWidget {
 												)
 											),
 											const SizedBox(height: 20,),
+											// I did not bother to look up how to add multi-lined strings in Dart. Hope that does not bother you, loolz :-p
 											const Text('Uzair is a final-year computer science and software engineering student at Lahore University of Management Sciences (LUMS) \n\nHe describes himself as a technology-business enthusiast, as he is very much intrigued by computer hardware, the semiconductor industry, finance of investments, economics, and technology entrepreneurship. Recently, he found his interest in moral philosophy and psychology \n\nUzair has been engineering software for the web (LAMPP & MERN stacks), mobile (iOS & Android) and blockchain (Ethereum) since 2019, and he is quite passionate about it as well \n\nGet in touch with him, or follow him on the following social platforms',
 												style: TextStyle(
 													fontSize: 16, 
@@ -56,7 +68,7 @@ class About extends StatelessWidget {
 																	children: [
 																		RawMaterialButton(
 																			elevation: 7.0,
-																			onPressed: () {},
+																			onPressed: () => html.window.open('https://www.facebook.com/profile.php?id=100006982786800', 'Uzair\'s Facebook Account'),
 																			fillColor: const Color(0xFFF5F6F9),
 																			child: const Icon(Icons.facebook, color: Colors.blue, size: 35,),
 																			padding: const EdgeInsets.all(7.0),
@@ -64,17 +76,15 @@ class About extends StatelessWidget {
 																		),
 																		RawMaterialButton(
 																			elevation: 7.0,
-																			onPressed: () async {
-																				
-																			},
+																			onPressed: () => html.window.open('https://www.quora.com/profile/Uzair-Afzal-6', 'Uzair\'s Quora Account'),
 																			fillColor: Colors.transparent,
-																			child: const Icon(Icons.mail_rounded, color: Colors.blue, size: 35),
+																			child: Text('Q', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red[900], fontSize: 30)),
 																			padding: const EdgeInsets.all(7.0),
 																			shape: const CircleBorder(),
 																		),
 																		RawMaterialButton(
 																			elevation: 7.0,
-																			onPressed: () {},
+																			onPressed: () => html.window.open('http://www.uzair-reviews.com', 'Uzair\'s Personal Website'),
 																			fillColor: Colors.transparent,
 																			child: const Icon(Icons.public_rounded, color: Colors.blue, size: 35),
 																			padding: const EdgeInsets.all(7.0),
