@@ -8,8 +8,6 @@ import 'package:campus_connect/pages/single_post.dart';
 import 'package:campus_connect/pages/new_post.dart';
 
 void main() => runApp(MaterialApp( 
-	// initialRoute: '/home',
-
 	routes: {
 		'/': (context) => const Splash(), 
 		'/signin': (context) => const SignIn(), 

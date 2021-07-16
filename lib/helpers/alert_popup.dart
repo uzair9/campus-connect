@@ -18,9 +18,10 @@ void alertPopUp(String title, String msg, BuildContext context) {
 			actions: [
 				CupertinoDialogAction(
 					child: const Text('Yes'),
-					onPressed: () => {
-						activeUser['campusID'] = activeUser['firstName'] = activeUser['lastName'] = null,
-						Navigator.pushReplacementNamed(context, '/signin')
+					onPressed: () {
+						activeUser['campusID'] = activeUser['firstName'] = activeUser['lastName'] = null;
+						Navigator.pushReplacementNamed(context, '/signin');
+						
 					},
 				), 
 				CupertinoDialogAction(

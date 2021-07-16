@@ -33,7 +33,7 @@ class SinglePost extends StatelessWidget {
 								onPressed: () => Navigator.pop(context),
 							),
 							Padding(
-								padding: EdgeInsets.fromLTRB(30, MediaQuery.of(context).size.width * 0.16, 30, 0.0), // for relative padding according to screen size (not absolute)
+								padding: EdgeInsets.fromLTRB(30, MediaQuery.of(context).size.width * 0.16, 30, 0.0), // for relative padding according to screen size (not absolute padding)
 								child: Center(
 									child: Column(
 										children: [ 

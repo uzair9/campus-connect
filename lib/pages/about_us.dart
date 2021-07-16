@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart'; 
-// import 'dart:html' as html;
+import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
-
 
 /*
 	One of the most simple and easy-to-understand screens. 
@@ -68,7 +66,7 @@ class About extends StatelessWidget {
 																	children: [
 																		RawMaterialButton(
 																			elevation: 7.0,
-																			onPressed: () => html.window.open('https://www.facebook.com/profile.php?id=100006982786800', 'Uzair\'s Facebook Account'),
+																			onPressed: () => html.window.open('https://www.facebook.com/profile.php?id=100006982786800', 'Uzair\'s Facebook Account'), // url and title (two inputs)
 																			fillColor: const Color(0xFFF5F6F9),
 																			child: const Icon(Icons.facebook, color: Colors.blue, size: 35,),
 																			padding: const EdgeInsets.all(7.0),
@@ -78,7 +76,7 @@ class About extends StatelessWidget {
 																			elevation: 7.0,
 																			onPressed: () => html.window.open('https://www.quora.com/profile/Uzair-Afzal-6', 'Uzair\'s Quora Account'),
 																			fillColor: Colors.transparent,
-																			child: Text('Q', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red[900], fontSize: 30)),
+																			child: const Text('Q', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 30)),
 																			padding: const EdgeInsets.all(7.0),
 																			shape: const CircleBorder(),
 																		),

@@ -10,8 +10,30 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+	
+	/*
+		Notice the currentTab and tabName variables.
+		There are the initial values of our stateful
+		widget, i.e., when the app loads, we are on 0th tab
+		which is called News
+	*/
+	
 	int currentTab = 0;
 	String tabName = 'News';
+
+	/*
+		Notice the WidgetList down below. This list
+		is making our AllPost widget and Home widget
+		reusable
+		
+		We change the params according to what we
+		want to read from the DB, but we are using the same widget, 
+		i.e., widgetList
+
+		Go down to the body section in this widget. Over there, we 
+		are calling one of these widgets from this array based on what tab
+		the user clicks in the bottom tab navigator
+	*/
   
 	final List <Widget> widgetList = 
 	[
@@ -24,6 +46,15 @@ class _HomeState extends State<Home> {
 	final List<String> allTabNames = ['News', 'Events', 'Announcements', '#HashTags'];
 
 	void onTabTapped(int index) {
+		
+		/*
+			The setState() method triggers build() all over again. 
+			When the user presses on any new tab in the bottom tab
+			navigator, this method gets called. This method causes build() 
+			to be run again, which causes a new widget to be called from the array
+			(widgetList)
+		*/
+		
 		setState(() {
 			currentTab = index;
 			tabName = allTabNames[currentTab];
@@ -39,8 +70,8 @@ class _HomeState extends State<Home> {
 			),
 			bottomNavigationBar: BottomNavigationBar(
 				type: BottomNavigationBarType.fixed,
-				currentIndex: currentTab,
-				onTap: onTabTapped, // automatically passes the index to the function
+				currentIndex: currentTab, // tells tab navigator which tab to show (from 0th to 3rd)
+				onTap: onTabTapped, // automatically passes the index to the function. Index is the tab number we want to switch to
 				
 				items: const [
 					BottomNavigationBarItem(
@@ -61,18 +92,28 @@ class _HomeState extends State<Home> {
 					),
 				],
 			),
-			drawer: const CustomDrawer(),
+			drawer: const CustomDrawer(), 
+			// including our drawer here. See drawer_widget.dart in the widgets folder
 			
+			/*
+				Notice the body down below. The body actually 
+				displays one of the widgets from the array. Initially, 
+				the body displays widget with all the news. But as you press
+				on different tabs, currentIndex gets updated in this widget causing setState()
+				to run causing body to run again causing different data to be loaded on the screen
+				as the AllPost() widget gets called with different params
+			*/
+
 			body: widgetList[currentTab],
+			
 			floatingActionButton: FloatingActionButton(
-				onPressed: () async {
-					// var ret = await Navigator.pushNamed(context, '/newPost', arguments: {
+				onPressed: () {
 					Navigator.pushNamed(context, '/newPost', arguments: {
 						'postType': allTabNames[currentTab]
 					});
-					// setState(() {
-					// 	tabName = allTabNames[currentTab];
-					// });
+					setState(() {
+						tabName = allTabNames[currentTab];
+					});
 				},
 				child: const Icon(
 					Icons.add,

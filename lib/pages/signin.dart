@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:campus_connect/db/local_db.dart';
 import 'package:campus_connect/db/sessions.dart'; 
 
+/*
+	The form is a very basic flutter form. 
+	Validator() function does validation for the form input fields 
+
+	We also set sessions (to keep track of an active user) in this file. 
+	We need this user's info in case they make a new post in the application
+
+	Notice that when we go to home, we replace this screen, i.e., you cannot come
+	back to this screen by pressing the "back" button from home screen
+*/
+
 class SignIn extends StatefulWidget {
 	const SignIn({ Key? key }) : super(key: key);
 
@@ -42,6 +53,13 @@ class _SignInState extends State<SignIn> {
 								decoration: const InputDecoration(
 									hintText: 'Enter LUMS ID'
 								), 
+								
+								/*
+									Notice the submit button at the bottom of the form. 
+									When we press the submit button, both the validators
+									get called one after another
+								*/
+								
 								validator: (String? id) {
 									if (id == null || id.isEmpty) {
 										return('LUMS ID is Required');

@@ -3,6 +3,12 @@ import 'package:campus_connect/widgets/my_account_card_widget.dart';
 import 'package:campus_connect/db/local_db.dart';
 import 'package:campus_connect/db/sessions.dart';
 
+/*
+	This is a very straighforward file.
+	Keep looking at the actual screen on phone and read code
+	from here. You will have no issue understanding what is going on
+*/
+
 class Account extends StatelessWidget {
 	const Account({ Key? key }) : super(key: key);
 	
@@ -47,6 +53,15 @@ class Account extends StatelessWidget {
 												]
 											),
 											const SizedBox(height: 23),
+
+											/*
+												Notice the my card widget. MyCard widget
+												returns a tile for us that we displaying on the page. 
+												We pass the following info to this card: 
+												1) leading icon
+												2) tile title
+												3) tile subtitle (which comes from user's info store by admins in the DB)
+											*/
 											
 											MyCard(icon: const Icon(Icons.apartment, color: Colors.blue, size: 33), tileTile: 'School', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['school']),
 											MyCard(icon: const Icon(Icons.receipt_long, color: Colors.blue, size: 33), tileTile: 'Degree Program', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['degreeProgram']),
