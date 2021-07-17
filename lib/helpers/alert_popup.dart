@@ -13,7 +13,7 @@ void alertPopUp(String title, String msg, BuildContext context) {
 	showDialog(
 		context: context,
 		builder: (BuildContext context) => CupertinoAlertDialog(
-			title: Text(title), 
+			title: Text(title),
 			content: Text(msg),
 			actions: [
 				CupertinoDialogAction(
@@ -25,7 +25,9 @@ void alertPopUp(String title, String msg, BuildContext context) {
 					},
 				), 
 				CupertinoDialogAction(
-					child: const Text('Cancel'), 
+					child: Text('Cancel', 
+						style: TextStyle(color: Colors.red[900]),
+					), 
 					onPressed: () => Navigator.pop(context),
 				)
 			],

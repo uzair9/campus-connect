@@ -50,63 +50,65 @@ class NewPost extends StatelessWidget {
 		
 		return (Scaffold(
 			body: SafeArea(
-				child: Stack(
-					children: [
-						IconButton(
-							onPressed: () => Navigator.pop(context), 
-							icon: const Icon(Icons.arrow_back_ios)
-						),
-						const SizedBox(height: 20),
-						Padding(
-							padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
-							child: Center(
-								child: Column(
-									children: [
-										Text('Add New ${ args['postType'] } Here'), 
+				child: SingleChildScrollView(
+					child: Stack(
+						children: [
+							IconButton(
+								onPressed: () => Navigator.pop(context), 
+								icon: const Icon(Icons.arrow_back_ios)
+							),
+							const SizedBox(height: 20),
+							Padding(
+								padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+								child: Center(
+									child: Column(
+										children: [
+											Text('Add New ${ args['postType'] } Here'), 
 
-										Form(
-											key: formKey,
-											child: Column(
-												children: [
-													TextFormField(
-														decoration: const InputDecoration(
-															hintText: 'Add Title', 
+											Form(
+												key: formKey,
+												child: Column(
+													children: [
+														TextFormField(
+															decoration: const InputDecoration(
+																hintText: 'Add Title', 
+															),
+															
+															/*
+																This validator ( and the one down below ) gets called
+																when you press the "tick" floating action button to submit
+																the new post
+															*/
+															
+															validator: (String? value) {
+																if (value == null || value.isEmpty ) {
+																	return('You Must Add a Title for Your ${ args['postType'] }');
+																}
+																newData['title'] = value;
+															},
 														),
-														
-														/*
-															This validator ( and the one down below ) gets called
-															when you press the "tick" floating action button to submit
-															the new post
-														*/
-														
-														validator: (String? value) {
-															if (value == null || value.isEmpty ) {
-																return('You Must Add a Title for Your ${ args['postType'] }');
-															}
-															newData['title'] = value;
-														},
-													),
-													TextFormField(
-														keyboardType: TextInputType.multiline,
-  													maxLines: 10,
-														decoration: const InputDecoration(
-															hintText: 'Add Details', 
-														),
-														validator: (String? value) {
-															if (value == null || value.isEmpty ) {
-																return('You Must Add Text Body for Your ${ args['postType'] }');
-															}
-															newData['body'] = value;
-														},
-													)
-												],
+														TextFormField(
+															keyboardType: TextInputType.multiline,
+														maxLines: 10,
+															decoration: const InputDecoration(
+																hintText: 'Add Details', 
+															),
+															validator: (String? value) {
+																if (value == null || value.isEmpty ) {
+																	return('You Must Add Text Body for Your ${ args['postType'] }');
+																}
+																newData['body'] = value;
+															},
+														)
+													],
+												)
 											)
-										)
-									]
+										]
+									),
 								),
 							),
-						),
-					],
+						],
+					),
 				)
 			), 
 			floatingActionButton: FloatingActionButton(

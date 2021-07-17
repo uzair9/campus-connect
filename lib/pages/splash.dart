@@ -29,29 +29,32 @@ class Splash extends StatelessWidget {
 		nextScreen(context);
 		
 		return Scaffold(
-			body: Center(
-				child: Column(
-					mainAxisAlignment: MainAxisAlignment.center,
-					children: [
-						CircleAvatar(
-							backgroundImage: const AssetImage('assets/images/logo.png'),
-							radius: MediaQuery.of(context).size.width * 0.45,
-							backgroundColor: Colors.transparent,
+			body: Padding(
+							padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+							child: Column(
+									// mainAxisAlignment: MainAxisAlignment.center,
+									children: [
+										CircleAvatar(
+											backgroundImage: const AssetImage('assets/images/cc-3.png'),
+											radius: MediaQuery.of(context).size.width * 0.45,
+											backgroundColor: Colors.transparent,
+										),
+										
+										/*
+											Install spinkkit package and then use it.
+											The wavy structure you see under the Campus Connect logo
+											is SpinKitWave basically
+										*/
+										
+										const SizedBox(height: 50),
+										SpinKitWave(
+											color: Colors.teal[700],
+											size: 30.0
+										)
+									]
+								),
 						),
-						
-						/*
-							Install spinkkit package and then use it.
-							The wavy structure you see under the Campus Connect logo
-							is SpinKitWave basically
-						*/
-						
-						SpinKitWave(
-							color: Colors.blue[600],
-							size: 30.0
-						)
-					]
-				),
-			)
+			//)
 		);
 	}
 }

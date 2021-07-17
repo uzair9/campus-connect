@@ -42,7 +42,7 @@ class Account extends StatelessWidget {
 											Text(database['campusConnect']['enrolledStudents'][signedInPerson]['firstName'] + ' ' + database['campusConnect']['enrolledStudents'][signedInPerson]['lastName'], 
 												style: TextStyle(
 													fontSize: 30, 
-													color: Colors.blue[600],
+													color: Colors.teal[700],
 													fontWeight: FontWeight.bold
 												)
 											),
@@ -63,12 +63,12 @@ class Account extends StatelessWidget {
 												3) tile subtitle (which comes from user's info store by admins in the DB)
 											*/
 											
-											MyCard(icon: const Icon(Icons.apartment, color: Colors.blue, size: 33), tileTile: 'School', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['school']),
-											MyCard(icon: const Icon(Icons.receipt_long, color: Colors.blue, size: 33), tileTile: 'Degree Program', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['degreeProgram']),
-											MyCard(icon: const Icon(Icons.schedule, color: Colors.blue, size: 33), tileTile: 'Academic Year', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['academicYear']),
-											MyCard(icon: const Icon(Icons.checklist, color: Colors.blue, size: 33), tileTile: 'Credits Completed', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['creditsTaken']),
-											MyCard(icon: const Icon(Icons.star, color: Colors.blue, size: 33), tileTile: 'CGPA', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['cgpa']),
-											MyCard(icon: const Icon(Icons.school, color: Colors.blue, size: 33), tileTile: 'Graduation Year', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['graduationYear']),
+											MyCard(icon: Icon(Icons.apartment_outlined, color: Colors.teal[600], size: 33), tileTile: 'School', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['school']),
+											MyCard(icon: Icon(Icons.receipt_long_outlined, color: Colors.teal[600], size: 33), tileTile: 'Degree Program', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['degreeProgram']),
+											MyCard(icon: Icon(Icons.schedule_outlined, color: Colors.teal[600], size: 33), tileTile: 'Academic Year', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['academicYear']),
+											MyCard(icon: Icon(Icons.checklist_outlined, color: Colors.teal[600], size: 33), tileTile: 'Credits Completed', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['creditsTaken']),
+											MyCard(icon: Icon(Icons.star_outlined, color: Colors.teal[600], size: 33), tileTile: 'CGPA', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['cgpa']),
+											MyCard(icon: Icon(Icons.school_outlined, color: Colors.teal[600], size: 33), tileTile: 'Graduation Year', tileSubtitle: database['campusConnect']['enrolledStudents'][signedInPerson]['graduationYear']),
 										],
 									),
 								),

@@ -41,6 +41,8 @@ class _CustomCardState extends State<CustomCard> {
 			return Padding(
 				padding: const EdgeInsets.fromLTRB(10, 10, 10, 0.0),
 				child: (Card(
+					margin: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+					elevation: 5,
 					child: Padding(
 						padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
 						child: Column(
@@ -53,10 +55,10 @@ class _CustomCardState extends State<CustomCard> {
 										'author': widget.author, 
 										'body': widget.body
 									}), 
-									child: Text('${widget.title} \n'),
+									child: Text('${widget.title} \n\n'),
 								),
 								Text('${widget.author} \n'), 
-								Text('${widget.date} \n'),
+								Text('${widget.date} \n\n\n\n'),
 							],
 						),
 					),
@@ -74,6 +76,8 @@ class _CustomCardState extends State<CustomCard> {
 			return Padding(
 				padding: const EdgeInsets.fromLTRB(10, 10, 10, 0.0),
 				child: (Card(
+					margin: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+					elevation: 5,
 					child: Padding(
 						padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
 						child: Column(
@@ -113,7 +117,7 @@ class _CustomCardState extends State<CustomCard> {
 															}
 														});
 													}, 
-													icon: const Icon(Icons.thumb_up, color: Colors.blue,)
+													icon: Icon(Icons.thumb_up, color: Colors.teal[600])
 												),
 												Text('${widget.agree}'), 
 											],
@@ -140,7 +144,7 @@ class _CustomCardState extends State<CustomCard> {
 															}
 														});
 													}, 
-													icon: const Icon(Icons.thumb_down, color: Colors.red,)
+													icon: Icon(Icons.thumb_down, color: Colors.red[700])
 												),
 												Text('${widget.disagree}')
 											],

@@ -24,14 +24,14 @@ class CustomDrawer extends StatelessWidget {
 			child: Column(
 				crossAxisAlignment: CrossAxisAlignment.stretch,
 				children: [
-					SizedBox(
+					const SizedBox(
 						height: 300,
 						child: DrawerHeader(
 							decoration: BoxDecoration(
-								color: Colors.blue[100],
+								color: Colors.transparent,
 							),
-							child: const CircleAvatar(
-								backgroundImage: AssetImage('assets/images/logo.png'),
+							child: CircleAvatar(
+								backgroundImage: AssetImage('assets/images/cc-3.png'),
 								backgroundColor: Colors.transparent,
 							),
 						),
@@ -40,9 +40,8 @@ class CustomDrawer extends StatelessWidget {
 						padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
 						child: Row(
 							children: [
-								const Icon(
-									Icons.manage_accounts,
-									color: Colors.black,
+								 const Icon(
+									Icons.manage_accounts_outlined
 								),
 								const SizedBox(width: 7),
 								InkWell(
@@ -56,9 +55,8 @@ class CustomDrawer extends StatelessWidget {
 						padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
 						child: Row(
 							children: [
-								const Icon(
-									Icons.people, 
-									color: Colors.black,
+								 const Icon(
+									Icons.people_outline
 								),
 								const SizedBox(width: 7),
 								InkWell(
@@ -69,16 +67,15 @@ class CustomDrawer extends StatelessWidget {
 						),
 					),
 					const Spacer(),
-					const Divider(
-						color: Colors.grey,
+					Divider(
+						color: Colors.grey[700]
 					),
 					Padding(
 						padding: const EdgeInsets.fromLTRB(20, 10, 0, 20),
 						child: Row(
 							children: [
-								Icon(
-									Icons.lock, 
-									color: Colors.grey[700],
+								const Icon(
+									Icons.lock_outline
 								),
 								const SizedBox(width: 7),
 								InkWell(

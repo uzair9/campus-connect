@@ -38,10 +38,10 @@ class SinglePost extends StatelessWidget {
 									child: Column(
 										children: [ 
 											Text('${args['title']} \n', 
-												style: TextStyle(
+												style: const TextStyle(
 													fontSize: 20, 
 													fontWeight: FontWeight.bold, 
-													color: Colors.blue[600]
+													// color: Colors.blue[600]
 												)
 											), 
 											Text('${args['author']} \n', 
@@ -56,7 +56,7 @@ class SinglePost extends StatelessWidget {
 													fontWeight: FontWeight.bold
 												)
 											),
-											Text('${args['body']} \n', 
+											SelectableText('${args['body']} \n', 
 												style: const TextStyle(
 													wordSpacing: 2,
 													fontSize: 17

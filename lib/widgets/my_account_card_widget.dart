@@ -29,7 +29,7 @@ class MyCard extends StatelessWidget {
 		return Column(
 			children: [
 				Card(
-					elevation: 4,
+					elevation: 5,
 					child: ListTile(
 						leading: icon,
 						title: Text(tileTile, 

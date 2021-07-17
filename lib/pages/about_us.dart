@@ -44,7 +44,7 @@ class About extends StatelessWidget {
 												style: TextStyle(
 													fontWeight: FontWeight.bold, 
 													fontSize: 25, 
-													color: Colors.blue[600]
+													color: Colors.teal[700]
 												)
 											),
 											const SizedBox(height: 20,),
@@ -68,7 +68,7 @@ class About extends StatelessWidget {
 																			elevation: 7.0,
 																			onPressed: () => html.window.open('https://www.facebook.com/profile.php?id=100006982786800', 'Uzair\'s Facebook Account'), // url and title (two inputs)
 																			fillColor: const Color(0xFFF5F6F9),
-																			child: const Icon(Icons.facebook, color: Colors.blue, size: 35,),
+																			child: const Icon(Icons.facebook, size: 35,),
 																			padding: const EdgeInsets.all(7.0),
 																			shape: const CircleBorder(),
 																		),
@@ -76,7 +76,7 @@ class About extends StatelessWidget {
 																			elevation: 7.0,
 																			onPressed: () => html.window.open('https://www.quora.com/profile/Uzair-Afzal-6', 'Uzair\'s Quora Account'),
 																			fillColor: Colors.transparent,
-																			child: const Text('Q', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 30)),
+																			child: Text('Q', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.teal[600], fontSize: 30)),
 																			padding: const EdgeInsets.all(7.0),
 																			shape: const CircleBorder(),
 																		),
@@ -84,7 +84,7 @@ class About extends StatelessWidget {
 																			elevation: 7.0,
 																			onPressed: () => html.window.open('http://www.uzair-reviews.com', 'Uzair\'s Personal Website'),
 																			fillColor: Colors.transparent,
-																			child: const Icon(Icons.public_rounded, color: Colors.blue, size: 35),
+																			child: const Icon(Icons.public_rounded, size: 35),
 																			padding: const EdgeInsets.all(7.0),
 																			shape: const CircleBorder(),
 																		),

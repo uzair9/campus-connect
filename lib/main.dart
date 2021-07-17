@@ -8,6 +8,7 @@ import 'package:campus_connect/pages/single_post.dart';
 import 'package:campus_connect/pages/new_post.dart';
 
 void main() => runApp(MaterialApp( 
+	// initialRoute: '/signin',
 	routes: {
 		'/': (context) => const Splash(), 
 		'/signin': (context) => const SignIn(), 
@@ -16,7 +17,27 @@ void main() => runApp(MaterialApp(
 		'/about': (context) => const About(),
 		'/singlePost': (context) => const SinglePost(),
 		'/newPost': (context) => const NewPost(),
-	},
+	}, 
+
+	theme: ThemeData(
+    // Define the default brightness and colors.
+    brightness: Brightness.light,
+    primaryColor: Colors.teal[800],
+    accentColor: Colors.red[800],
+
+		iconTheme: IconThemeData(
+			color: Colors.teal[600]
+		),
+
+    // Define the default TextTheme. Use this to specify the default
+    // text styling for headlines, titles, bodies of text, and more.
+    // textTheme: TextTheme(
+    //   headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold, color: Colors.red[900]),
+    //   headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic, color: Colors.red[900]),
+    //   bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind', color: Colors.red[900]),
+
+    // ),
+  ),
 ));
 
 /*

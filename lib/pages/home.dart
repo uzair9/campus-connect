@@ -64,30 +64,43 @@ class _HomeState extends State<Home> {
 	@override
 	Widget build(BuildContext context) {
 		return(Scaffold(
-			appBar: AppBar(
-				title: Text(tabName),
-				centerTitle: true,
+			appBar: PreferredSize(
+				preferredSize: const Size.fromHeight(75.0),
+				child: AppBar(
+						title: Container(
+						margin: const EdgeInsets.only(top: 20),
+						child: Text(tabName, 
+							style: const TextStyle(
+								fontSize: 22,
+							)
+						), 
+					),
+					centerTitle: true,
+					elevation: 0,
+				),
 			),
 			bottomNavigationBar: BottomNavigationBar(
+				
 				type: BottomNavigationBarType.fixed,
 				currentIndex: currentTab, // tells tab navigator which tab to show (from 0th to 3rd)
 				onTap: onTabTapped, // automatically passes the index to the function. Index is the tab number we want to switch to
-				
+				selectedItemColor: Colors.red[800],
+				unselectedItemColor: Colors.teal[600],
 				items: const [
 					BottomNavigationBarItem(
-						icon: Icon(Icons.feed),
+						icon: Icon(Icons.feed_outlined),
 						label: 'News'
 					), 
 					BottomNavigationBarItem(
-						icon: Icon(Icons.celebration),
+						icon: Icon(Icons.celebration_outlined),
 						label: 'Events'
 					), 
 					BottomNavigationBarItem(
-						icon: Icon(Icons.campaign), 
+						icon: Icon(Icons.campaign_outlined), 
 						label: 'Announcements'
 					),
 					BottomNavigationBarItem(
-						icon: Icon(Icons.tag),
+						icon: Icon(Icons.tag_outlined),
 						label: 'HashTags'
 					),
 				],
@@ -103,9 +116,8 @@ class _HomeState extends State<Home> {
 				to run causing body to run again causing different data to be loaded on the screen
 				as the AllPost() widget gets called with different params
 			*/
-
-			body: widgetList[currentTab],
 			
+			body: widgetList[currentTab],
 			floatingActionButton: FloatingActionButton(
 				onPressed: () {
 					Navigator.pushNamed(context, '/newPost', arguments: {
