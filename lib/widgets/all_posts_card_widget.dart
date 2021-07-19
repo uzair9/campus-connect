@@ -41,24 +41,75 @@ class _CustomCardState extends State<CustomCard> {
 			return Padding(
 				padding: const EdgeInsets.fromLTRB(10, 10, 10, 0.0),
 				child: (Card(
-					margin: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+					color: Colors.grey[100],
+					
+					margin: const EdgeInsets.fromLTRB(10, 0, 10, 12),
 					elevation: 5,
 					child: Padding(
 						padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
 						child: Column(
-							crossAxisAlignment: CrossAxisAlignment.stretch,
-							children: [ 
-								TextButton(
-									onPressed: () => Navigator.pushNamed(context, '/singlePost', arguments: {
+							crossAxisAlignment: CrossAxisAlignment.center,
+							children: [
+								Align(
+									alignment: Alignment.topLeft,
+									child: Text('Published by ${ widget.author } \n\n', 
+										style: TextStyle(
+											color: Colors.grey[600], 
+											fontSize: 12
+										)
+									),
+								),
+								Text('${ widget.title } \n', 
+									style: TextStyle(
+										color: Colors.red[800], 
+										fontSize: 16, 
+										fontWeight: FontWeight.bold
+									)
+								),
+								Row(
+									mainAxisAlignment: MainAxisAlignment.center,
+									children: [
+											const Icon(Icons.schedule,
+												size: 18,
+											),
+											const SizedBox(width: 4.0),
+											Text(widget.date,
+											style: TextStyle(
+												color: Colors.grey[600], 
+												fontSize: 12
+											),
+										)
+									],
+								),
+								const SizedBox(height: 10.0),
+								GestureDetector(
+									onTap: () => Navigator.pushNamed(context, '/singlePost', arguments: {
 										'title': widget.title, 
 										'date': widget.date, 
 										'author': widget.author, 
 										'body': widget.body
-									}), 
-									child: Text('${widget.title} \n\n'),
+									}),
+									child: Padding(
+										padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.065, 5, MediaQuery.of(context).size.width * 0.065, 15),
+										child: Container(
+											height: 43,
+											decoration: const BoxDecoration(
+												// color: Colors[0xeefdec],
+												color: Color.fromRGBO(100, 170, 100, 0.125),
+												borderRadius: BorderRadius.all(Radius.circular(30))
+											),
+											child: Center(
+												child: Text('View Now', 
+													style: TextStyle(
+														color: Colors.green[800], 
+														fontWeight: FontWeight.bold, 
+														fontSize: 15
+													),	
+												),
+											)
+										),
+									),
 								),
-								Text('${widget.author} \n'), 
-								Text('${widget.date} \n\n\n\n'),
 							],
 						),
 					),
@@ -76,80 +127,125 @@ class _CustomCardState extends State<CustomCard> {
 			return Padding(
 				padding: const EdgeInsets.fromLTRB(10, 10, 10, 0.0),
 				child: (Card(
-					margin: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+					color: Colors.grey[100],
+
+					margin: const EdgeInsets.fromLTRB(10, 0, 10, 12),
 					elevation: 5,
 					child: Padding(
 						padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
 						child: Column(
-							crossAxisAlignment: CrossAxisAlignment.stretch,
+							crossAxisAlignment: CrossAxisAlignment.center,
 							children: [ 
-								TextButton(
-									onPressed: () => Navigator.pushNamed(context, '/singlePost', arguments: {
+								Align(
+									alignment: Alignment.topLeft,
+									child: Text('Published by ${ widget.author } \n\n', 
+										style: TextStyle(
+											color: Colors.grey[600], 
+											fontSize: 12
+										)
+									),
+								),
+								GestureDetector(
+									onTap: () => Navigator.pushNamed(context, '/singlePost', arguments: {
 										'title': widget.title, 
 										'date': widget.date, 
 										'author': widget.author, 
 										'body': widget.body
 									}),
-									child: Text('${widget.title} \n'),
+									child: Center(
+										child: Text('${widget.title} \n',
+											style: TextStyle(
+												color: Colors.red[800], 
+												fontWeight: FontWeight.bold, 
+												fontSize: 15
+											),	
+										),
+									)
 								),
-								Text('${widget.author} \n'), 
-								Text('${widget.date} \n'),
 								Row(
 									mainAxisAlignment: MainAxisAlignment.center,
 									children: [
-										Row(
-											children: [
-												IconButton(
-													
-													/*
-														We will wait here for what the function returns.
-														That will let us know if this user has already reacted to this hashtag or not. 
-														If the function returns false, it means that they have already reacted, so 
-														we are sure that no changes have been made to the DB. Hence, we do not make
-														any changes to our local state of the widget
-													*/
-													
-													onPressed: ()  async {
-														bool ret = await handleThumbsUpDown('up', widget.hashTagId);
-														setState(() {
-															if (ret) { 
-																widget.agree++; 
-															}
-														});
-													}, 
-													icon: Icon(Icons.thumb_up, color: Colors.teal[600])
-												),
-												Text('${widget.agree}'), 
-											],
-										),
-										const SizedBox(width: 15.0),
-										Row(
-											children: [
-												IconButton(
-													
-													/*
-														We will wait here for what the function returns.
-														That will let us know if this user has already reacted to this hashtag or not. 
-														If the function returns false, it means that they have already reacted, so 
-														we are sure that no changes have been made to the DB. Hence, we do not make
-														any changes to our local state of the widget
-													*/
-													
-													onPressed: () async {
-														bool ret = await handleThumbsUpDown('down', widget.hashTagId);
-														setState( () {
-															// fix this with a conditional stat
-															if (ret) { 
-																widget.disagree++; 
-															}
-														});
-													}, 
-													icon: Icon(Icons.thumb_down, color: Colors.red[700])
-												),
-												Text('${widget.disagree}')
-											],
-										),
+											const Icon(Icons.schedule,
+												size: 18,
+											),
+											const SizedBox(width: 4.0),
+											Text( widget.date,
+											style: TextStyle(
+												color: Colors.grey[600], 
+												fontSize: 12
+											),
+										)
 									],
+								),
+								const SizedBox(height: 10.0),
+								Padding(
+									padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.065, 5, MediaQuery.of(context).size.width * 0.065, 15),
+										child: Container(
+										height: 43,
+										decoration: const BoxDecoration(
+											color: Color.fromRGBO(100, 170, 100, 0.125),
+											borderRadius: BorderRadius.all(Radius.circular(30))
+										),
+
+
+										child: Row(
+											mainAxisAlignment: MainAxisAlignment.center,
+											children: [
+												Row(
+													children: [
+														IconButton(
+															
+															/*
+																We will wait here for what the function returns.
+																That will let us know if this user has already reacted to this hashtag or not. 
+																If the function returns false, it means that they have already reacted, so 
+																we are sure that no changes have been made to the DB. Hence, we do not make
+																any changes to our local state of the widget
+															*/
+															
+															onPressed: ()  async {
+																bool ret = await handleThumbsUpDown('up', widget.hashTagId);
+																setState(() {
+																	if (ret) { 
+																		widget.agree++; 
+																	}
+																});
+															}, 
+															icon: Icon(Icons.thumb_up, color: Colors.teal[600])
+														),
+														Text('${widget.agree}'), 
+													],
+												),
+												const SizedBox(width: 8.0),
+												Row(
+													children: [
+														IconButton(
+															
+															/*
+																We will wait here for what the function returns.
+																That will let us know if this user has already reacted to this hashtag or not. 
+																If the function returns false, it means that they have already reacted, so 
+																we are sure that no changes have been made to the DB. Hence, we do not make
+																any changes to our local state of the widget
+															*/
+															
+															onPressed: () async {
+																bool ret = await handleThumbsUpDown('down', widget.hashTagId);
+																setState( () {
+																	// fix this with a conditional stat
+																	if (ret) { 
+																		widget.disagree++; 
+																	}
+																});
+															}, 
+															icon: Icon(Icons.thumb_down, color: Colors.red[700])
+														),
+														Text('${widget.disagree}')
+													],
+												),
+											],
+										),
+									)
 								)
 							],
 						),

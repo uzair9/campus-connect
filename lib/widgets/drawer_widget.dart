@@ -28,7 +28,7 @@ class CustomDrawer extends StatelessWidget {
 						height: 300,
 						child: DrawerHeader(
 							decoration: BoxDecoration(
-								color: Colors.transparent,
+								color: Color.fromRGBO(100, 180, 100, 0.25),
 							),
 							child: CircleAvatar(
 								backgroundImage: AssetImage('assets/images/cc-3.png'),
