@@ -99,7 +99,7 @@ class _CustomCardState extends State<CustomCard> {
 												borderRadius: BorderRadius.all(Radius.circular(30))
 											),
 											child: Center(
-												child: Text('View Now', 
+												child: Text('View', 
 													style: TextStyle(
 														color: Colors.green[800], 
 														fontWeight: FontWeight.bold, 

@@ -63,8 +63,25 @@ class NewPost extends StatelessWidget {
 								child: Center(
 									child: Column(
 										children: [
-											Text('Add New ${ args['postType'] } Here'), 
-
+											Padding(
+												padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.065, 5, MediaQuery.of(context).size.width * 0.065, 15),
+												child: Container(
+													height: 50,
+													decoration: const BoxDecoration(
+														color: Color.fromRGBO(100, 170, 100, 0.125),
+														borderRadius: BorderRadius.all(Radius.circular(10))
+													),
+													child: Center(
+														child: Text('Add New ${ args['postType'] } Here', 
+															style: TextStyle(
+																color: Colors.green[800], 
+																fontWeight: FontWeight.bold, 
+																fontSize: 19
+															),	
+														),
+													)
+												),
+											),
 											Form(
 												key: formKey,
 												child: Column(
@@ -72,6 +89,7 @@ class NewPost extends StatelessWidget {
 														TextFormField(
 															decoration: const InputDecoration(
 																hintText: 'Add Title', 
+																border: OutlineInputBorder()
 															),
 															
 															/*
@@ -82,24 +100,36 @@ class NewPost extends StatelessWidget {
 															
 															validator: (String? value) {
 																if (value == null || value.isEmpty ) {
-																	return('You Must Add a Title for Your ${ args['postType'] }');
+																	return('You Must Add a Title for This ${ args['postType'] }');
 																}
 																newData['title'] = value;
 															},
 														),
+														const SizedBox(height: 15.0),
 														TextFormField(
 															keyboardType: TextInputType.multiline,
-														maxLines: 10,
+															maxLines: 15,
 															decoration: const InputDecoration(
 																hintText: 'Add Details', 
+																border: OutlineInputBorder()
 															),
 															validator: (String? value) {
 																if (value == null || value.isEmpty ) {
-																	return('You Must Add Text Body for Your ${ args['postType'] }');
+																	return('You Must Add Details for This ${ args['postType'] }');
 																}
 																newData['body'] = value;
 															},
-														)
+														), 
+														const SizedBox(height: 10),
+														Align(
+															alignment: Alignment.bottomRight,
+															child: Text('Published by ${ newData['author'] } on ${ newData['date'] }', 
+																style: TextStyle(
+																	color: Colors.grey[700], 
+																	fontStyle: FontStyle.italic
+																)
+															),
+														),
 													],
 												)
 											)

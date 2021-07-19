@@ -37,5 +37,7 @@ void main() => runApp(MaterialApp(
 		iconTheme: IconThemeData(
 			color: Colors.teal[600]
 		),
+
+		errorColor: Colors.red[600]
   ),
 ));

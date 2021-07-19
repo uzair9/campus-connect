@@ -52,6 +52,7 @@ class _SignInState extends State<SignIn> {
 								const SizedBox(height: 20.0),
 								TextFormField(
 									decoration: const InputDecoration(
+										border: OutlineInputBorder(),
 										hintText: 'Enter LUMS ID'
 									), 
 									
@@ -77,6 +78,7 @@ class _SignInState extends State<SignIn> {
 								const SizedBox(height: 10.0), 
 								TextFormField(
 									decoration: const InputDecoration(
+										border: OutlineInputBorder(),
 										hintText: 'Enter LUMS Password'
 									), 
 									validator: (String? pass) {
@@ -90,8 +92,8 @@ class _SignInState extends State<SignIn> {
 									},
 								),
 								const SizedBox(height: 20), 
-								ElevatedButton(
-									onPressed: () => {
+								GestureDetector(
+									onTap: () => {
 										if (formKey.currentState!.validate()) {
 											activeUser['campusID'] = campusID,
 											activeUser['firstName'] = database['campusConnect']['enrolledStudents'][campusID]['firstName'],
@@ -100,9 +102,27 @@ class _SignInState extends State<SignIn> {
 											Navigator.pushReplacementNamed(context, '/home')
 										}
 									},
-									child: const Text('Continue'), 
-									
-								)
+									child: Padding(
+										padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.065, 5, MediaQuery.of(context).size.width * 0.065, 15),
+										child: Container(
+											height: 43,
+											decoration: const BoxDecoration(
+												// color: Colors[0xeefdec],
+												color: Color.fromRGBO(100, 170, 100, 0.125),
+												borderRadius: BorderRadius.all(Radius.circular(30))
+											),
+											child: Center(
+												child: Text('Continue', 
+													style: TextStyle(
+														color: Colors.green[800], 
+														fontWeight: FontWeight.bold, 
+														fontSize: 15
+													),	
+												),
+											)
+										),
+									),
+								),
 							],
 						),
 					)

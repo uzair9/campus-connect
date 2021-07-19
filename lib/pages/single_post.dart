@@ -33,34 +33,40 @@ class SinglePost extends StatelessWidget {
 								onPressed: () => Navigator.pop(context),
 							),
 							Padding(
-								padding: EdgeInsets.fromLTRB(30, MediaQuery.of(context).size.width * 0.16, 30, 0.0), // for relative padding according to screen size (not absolute padding)
+								padding: const EdgeInsets.fromLTRB(20, 60, 20, 0.0), // for relative padding according to screen size (not absolute padding)
 								child: Center(
 									child: Column(
-										children: [ 
-											Text('${args['title']} \n', 
-												style: const TextStyle(
-													fontSize: 20, 
+										children: [
+											Text(args['title'], 
+												style: TextStyle(
+													color: Colors.red[800], 
 													fontWeight: FontWeight.bold, 
-													// color: Colors.blue[600]
-												)
-											), 
-											Text('${args['author']} \n', 
-												style: const TextStyle(
-													fontSize: 14, 
-													fontWeight: FontWeight.bold
+													fontSize: 16
 												)
 											),
-											Text('${args['date']} \n', 
-												style: const TextStyle(
-													fontSize: 14, 
-													fontWeight: FontWeight.bold
+											const SizedBox(height: 15.0),
+											Card(
+												elevation: 5.0,
+												child: Padding(
+													padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+													child: SelectableText('${args['body']} \n', 
+														style: const TextStyle(
+															wordSpacing: 2,
+															fontSize: 17
+														)
+													),
 												)
 											),
-											SelectableText('${args['body']} \n', 
-												style: const TextStyle(
-													wordSpacing: 2,
-													fontSize: 17
-												)
+											const SizedBox(height: 10,),
+											Align(
+												alignment: Alignment.center,
+												child: Text('Published by ${ args['author']} on ${ args['date'] }', 
+													style: TextStyle(
+														color: Colors.grey[700], 
+														fontStyle: FontStyle.italic, 
+														
+													),
+												),
 											)
 										]
 									),
