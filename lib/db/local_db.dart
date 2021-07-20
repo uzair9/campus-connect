@@ -7,6 +7,17 @@
 Map database = {
 	'campusConnect': {
 		'enrolledStudents': {
+			'default': {
+				'password': '123',
+				'firstName': 'Default', 
+				'lastName': 'User',
+				'creditsTaken': '0 / 130', 
+				'school': 'Not Admitted to any School', 
+				'academicYear': '0', 
+				'graduationYear': 'Graduation Year Cannot be Predicted',
+				'cgpa': '0.000', 
+				'degreeProgram': 'Not Enrolled in Any Degree Program'
+			},
 			'22100031': {
 				'password': '123', 
 				'firstName': 'Uzair', 
@@ -17,7 +28,7 @@ Map database = {
 				'graduationYear': '2022',
 				'cgpa': '3.527', 
 				'degreeProgram': 'Computer Science & Software Engineering'
-			}, 
+			},
 			'22100032': {
 				'password': '1234',
 				'firstName': 'Maria', 
@@ -42,7 +53,7 @@ Map database = {
 		'news': [
 			{
 				'id': 0,
-				'title': 'LUMS Appoints New Vice Chancellor', 
+				'title': 'LUMS Appoints New VC', 
 				'body': 'Prior to his current role as Vice Chancellor LUMS, Dr. Arshad Ahmad served as Vice Provost, Teaching and Learning, and Director of the MacPherson Institute at McMaster University in Canada. \n\nHe is also Chair of Teaching and Learning Canada, former President of Society for Teaching and Learning in Higher Education and former Vice President of International Consortium of Educational Developers. \n\nDr. Ahmad completed his MBA and later PhD in Educational Psychology at McGill University, won a lifetime 3M National Teaching Fellowship in 1992 and was a professor of finance at Concordia and McMaster Universities. \n\nHis research interests are in student evaluations of teaching, approaches to teaching, teaching philosophies and student partnerships',
 				'author': 'LUMS Administration', 
 				'date': '2021-07-11', 

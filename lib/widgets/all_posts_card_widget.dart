@@ -52,20 +52,21 @@ class _CustomCardState extends State<CustomCard> {
 							children: [
 								Align(
 									alignment: Alignment.topLeft,
-									child: Text('Published by ${ widget.author } \n\n', 
+									child: Text('Published by ${ widget.author } \n', 
 										style: TextStyle(
 											color: Colors.grey[600], 
 											fontSize: 12
 										)
 									),
 								),
-								Text('${ widget.title } \n', 
+								Text(widget.title, 
 									style: TextStyle(
 										color: Colors.red[800], 
-										fontSize: 16, 
-										fontWeight: FontWeight.bold
+										fontSize: 17,
+										fontFamily: 'Ottoman'
 									)
 								),
+								const SizedBox(height: 15),
 								Row(
 									mainAxisAlignment: MainAxisAlignment.center,
 									children: [
@@ -81,35 +82,38 @@ class _CustomCardState extends State<CustomCard> {
 										)
 									],
 								),
-								const SizedBox(height: 10.0),
-								GestureDetector(
+								const SizedBox(height: 13.0),
+								InkWell(
 									onTap: () => Navigator.pushNamed(context, '/singlePost', arguments: {
 										'title': widget.title, 
 										'date': widget.date, 
 										'author': widget.author, 
 										'body': widget.body
 									}),
-									child: Padding(
-										padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.065, 5, MediaQuery.of(context).size.width * 0.065, 15),
-										child: Container(
-											height: 43,
-											decoration: const BoxDecoration(
-												// color: Colors[0xeefdec],
-												color: Color.fromRGBO(100, 170, 100, 0.125),
-												borderRadius: BorderRadius.all(Radius.circular(30))
-											),
-											child: Center(
-												child: Text('View', 
-													style: TextStyle(
-														color: Colors.green[800], 
-														fontWeight: FontWeight.bold, 
-														fontSize: 15
-													),	
+									child: Column(
+										children: [
+											Container(
+												height: 43,
+												width: MediaQuery.of(context).size.width * 0.65,
+												decoration: const BoxDecoration(
+													// color: Colors[0xeefdec],
+													color: Color.fromRGBO(100, 170, 100, 0.125),
+													borderRadius: BorderRadius.all(Radius.circular(30))
 												),
-											)
-										),
+												child: Center(
+													child: Text('View', 
+														style: TextStyle(
+															color: Colors.green[800], 
+															fontWeight: FontWeight.bold, 
+															fontSize: 15
+														),	
+													),
+												)
+											),
+										],
 									),
 								),
+								const SizedBox(height: 10.0),
 							],
 						),
 					),
@@ -138,7 +142,7 @@ class _CustomCardState extends State<CustomCard> {
 							children: [ 
 								Align(
 									alignment: Alignment.topLeft,
-									child: Text('Published by ${ widget.author } \n\n', 
+									child: Text('Published by ${ widget.author } \n', 
 										style: TextStyle(
 											color: Colors.grey[600], 
 											fontSize: 12
@@ -153,15 +157,17 @@ class _CustomCardState extends State<CustomCard> {
 										'body': widget.body
 									}),
 									child: Center(
-										child: Text('${widget.title} \n',
+										child: Text(widget.title,
 											style: TextStyle(
 												color: Colors.red[800], 
-												fontWeight: FontWeight.bold, 
-												fontSize: 15
+												// fontWeight: FontWeight.bold, 
+												fontFamily: 'Ottoman',
+												fontSize: 17
 											),	
 										),
 									)
 								),
+								const SizedBox(height: 13.0),
 								Row(
 									mainAxisAlignment: MainAxisAlignment.center,
 									children: [

@@ -15,8 +15,18 @@ class Account extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 	
-	String signedInPerson = activeUser['campusID'];
-	List<String> academicYearConversion = ['First-Year Student', 'Sophomore Student', 'Junior-Year Student', 'Final-Year Student'];
+		String? signedInPerson = activeUser['campusID'];
+		signedInPerson ??= 'default';
+		
+		/*
+			In case sessions are not set (no user is active), 
+			we show the profile of our "deafult user" in place of active user,
+			because there is no active user right now
+
+			We are just trying to prevent some runtime null errors
+		*/
+
+		List<String> academicYearConversion = ['Not a Student', 'First-Year Student', 'Sophomore Student', 'Junior-Year Student', 'Final-Year Student'];
 		int academicYear = int.parse(database['campusConnect']['enrolledStudents'][signedInPerson]['academicYear']);
 		
 		return(Scaffold(
@@ -38,18 +48,18 @@ class Account extends StatelessWidget {
 												backgroundImage: const AssetImage('assets/images/user.png'),
 												backgroundColor: Colors.transparent,
 											),
-											const SizedBox(height: 40),
+											const SizedBox(height: 20),
 											Text(database['campusConnect']['enrolledStudents'][signedInPerson]['firstName'] + ' ' + database['campusConnect']['enrolledStudents'][signedInPerson]['lastName'], 
 												style: TextStyle(
 													fontSize: 30, 
 													color: Colors.teal[700],
-													fontWeight: FontWeight.bold
+													fontFamily: 'Ottoman'
 												)
 											),
 											Row(
 												mainAxisAlignment: MainAxisAlignment.center,
 												children: [
-													Text('${ academicYearConversion[academicYear - 1] } at LUMS'),
+													Text('${ academicYearConversion[academicYear] } at LUMS'),
 												]
 											),
 											const SizedBox(height: 23),

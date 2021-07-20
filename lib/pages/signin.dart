@@ -42,11 +42,11 @@ class _SignInState extends State<SignIn> {
 									backgroundColor: Colors.transparent,
 								),
 								const SizedBox(height: 20.0),
-								Text('Campus Connect (LUMS)', 
+								Text('Campus Connect',
 									style: TextStyle(
-										fontSize: 27, 
-										fontWeight: FontWeight.bold, 
-										color: Colors.teal[700]
+										fontSize: 30,
+										color: Colors.teal[700], 
+										fontFamily: 'Ottoman'
 									),
 								),
 								const SizedBox(height: 20.0),
@@ -92,7 +92,7 @@ class _SignInState extends State<SignIn> {
 									},
 								),
 								const SizedBox(height: 20), 
-								GestureDetector(
+								InkWell(
 									onTap: () => {
 										if (formKey.currentState!.validate()) {
 											activeUser['campusID'] = campusID,
@@ -102,25 +102,23 @@ class _SignInState extends State<SignIn> {
 											Navigator.pushReplacementNamed(context, '/home')
 										}
 									},
-									child: Padding(
-										padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.065, 5, MediaQuery.of(context).size.width * 0.065, 15),
-										child: Container(
-											height: 43,
-											decoration: const BoxDecoration(
-												// color: Colors[0xeefdec],
-												color: Color.fromRGBO(100, 170, 100, 0.125),
-												borderRadius: BorderRadius.all(Radius.circular(30))
-											),
-											child: Center(
-												child: Text('Continue', 
-													style: TextStyle(
-														color: Colors.green[800], 
-														fontWeight: FontWeight.bold, 
-														fontSize: 15
-													),	
-												),
-											)
+									child: Container(
+										height: 43,
+										width: MediaQuery.of(context).size.width * 0.65,
+										decoration: const BoxDecoration(
+											// color: Colors[0xeefdec],
+											color: Color.fromRGBO(100, 170, 100, 0.125),
+											borderRadius: BorderRadius.all(Radius.circular(30))
 										),
+										child: Center(
+											child: Text('Continue', 
+												style: TextStyle(
+													color: Colors.green[800], 
+													fontWeight: FontWeight.bold, 
+													fontSize: 15
+												),	
+											),
+										)
 									),
 								),
 							],

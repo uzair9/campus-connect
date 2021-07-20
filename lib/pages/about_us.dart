@@ -45,16 +45,16 @@ class About extends StatelessWidget {
 														children: [
 															Text('Our Developer\'s Story', 
 																style: TextStyle(
-																	fontWeight: FontWeight.bold, 
 																	fontSize: 23, 
-																	color: Colors.teal[700]
+																	color: Colors.teal[700], 
+																	fontFamily: 'Ottoman'
 																)
 															),
 															const SizedBox(height: 20),
 															const Text('Uzair Afzal (2022-10-0031) hit upon the idea of decreasing communication barriers across the campus of LUMS. So, in his Summer break, 2021, he created Campus Connect from the ground up as a rising final-year student at LUMS \n\nThe application has been programmed in Dart programming language and Flutter UI toolkit. Uziar knew neither of the afore-mentioned technologies, but this did not stop him. At first, he learnt the language, and then he learnt the framework itself. Finally he embarked on the journey of creating this app\n', 
 																style: TextStyle(
-																	fontSize: 16, 
-																	wordSpacing: 2
+																	fontSize: 19,
+																	fontFamily: 'Cormorant-Light'
 																)
 															)
 														],
@@ -73,16 +73,16 @@ class About extends StatelessWidget {
 														children: [
 															Text('About Uzair Afzal', 
 																style: TextStyle(
-																	fontWeight: FontWeight.bold, 
 																	fontSize: 25, 
-																	color: Colors.teal[700]
+																	color: Colors.teal[700], 
+																	fontFamily: 'Ottoman'
 																)
 															),
 															const SizedBox(height: 20),
 															const Text('At the time of writing (July, 2021), Uzair is a final-year computer science and software engineering student at Lahore University of Management Sciences (LUMS) \n\nHe describes himself as a technology-business enthusiast, as he is very much intrigued by computer hardware, the semiconductor industry, finance of investments, economics, and technology entrepreneurship. Recently, he found his interest in moral philosophy and psychology \n\nUzair has been engineering software for the web (LAMPP & MERN stacks), mobile (iOS & Android) and blockchain (Ethereum) since 2019, and he is quite passionate about it as well \n\nGet in touch with him, or follow him on the following social platforms',
 																style: TextStyle(
-																	fontSize: 16, 
-																	wordSpacing: 2
+																	fontSize: 20,
+																	fontFamily: 'Cormorant-Light'
 																)
 															),
 															const SizedBox(height: 20),

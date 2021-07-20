@@ -9,8 +9,11 @@ class NewPost extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 		
-		Map args = ModalRoute.of(context)!.settings.arguments as Map; // the information about the type of post (out of 4 possibities) is here
+		Map args = ModalRoute.of(context)!.settings.arguments as Map; // the information of the type of post (out of 4 possibities) comes here
 		String date = DateTime.now().toString();
+		String? signedInPerson = activeUser['campusID'];
+		signedInPerson ??= 'default';
+		final formKey = GlobalKey<FormState>();
 		
 		/*
 			Now, this is important. Take a look at the newData
@@ -33,20 +36,18 @@ class NewPost extends StatelessWidget {
 			'id': Random().nextInt(1000000000) + 0,
 			'title': '',
 			'body': '',
-			'author': '${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['firstName'] } ${ database['campusConnect']['enrolledStudents'][activeUser['campusID']]['lastName'] }', 
+			'author': '${ database['campusConnect']['enrolledStudents'][signedInPerson]['firstName']} ${ database['campusConnect']['enrolledStudents'][signedInPerson]['lastName'] }', 
 			'date': date.substring(0, date.indexOf(' ')),
 			'agree': 0,
 			'disagree': 0,
 			'reactedBy': []
 		};
-		
+
 		String dbFieldToUpdate = 
 		args['postType'] == 'News' ? 'news' : 
 		args['postType'] == 'Events' ? 'events' :
 		args['postType'] == 'Announcements' ? 'announcements' :
 		args['postType'] == '#HashTags' ? 'hashtags' : '';
-
-		final formKey = GlobalKey<FormState>();
 		
 		return (Scaffold(
 			body: SafeArea(
@@ -74,9 +75,9 @@ class NewPost extends StatelessWidget {
 													child: Center(
 														child: Text('Add New ${ args['postType'] } Here', 
 															style: TextStyle(
-																color: Colors.green[800], 
-																fontWeight: FontWeight.bold, 
-																fontSize: 19
+																color: Colors.green[800],
+																fontSize: 18, 
+																fontFamily: 'Ottoman'
 															),	
 														),
 													)
@@ -140,12 +141,14 @@ class NewPost extends StatelessWidget {
 						],
 					),
 				)
-			), 
+			),
 			floatingActionButton: FloatingActionButton(
 				onPressed: () {
-					if (formKey.currentState!.validate()) {
-						database['campusConnect'][dbFieldToUpdate].insert(0, newData);
+					if (formKey.currentState!.validate() && signedInPerson != 'default') {
+						database['campusConnect'][dbFieldToUpdate].insert(0, newData); // insert at start
 						Navigator.pushReplacementNamed(context, '/home');
+
+						// notice that without signing in (default user) cannot add new posts
 					}
 				},
 				child: const Icon(

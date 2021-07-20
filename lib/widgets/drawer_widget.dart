@@ -17,7 +17,7 @@ import 'package:campus_connect/helpers/alert_popup.dart';
 
 class CustomDrawer extends StatelessWidget {
 	const CustomDrawer({ Key? key }) : super(key: key);
-
+	
 	@override
 	Widget build(BuildContext context) {
 		return Drawer(
@@ -38,32 +38,32 @@ class CustomDrawer extends StatelessWidget {
 					),
 					Padding(
 						padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
-						child: Row(
-							children: [
-								 const Icon(
-									Icons.manage_accounts_outlined
-								),
-								const SizedBox(width: 7),
-								InkWell(
-									onTap: () => Navigator.pushNamed(context, '/account'),
-									child: const Text('My Account'),
-								),
-							],
+						child: InkWell(
+							onTap: () => Navigator.pushNamed(context, '/account'),
+							child: Row(
+								children: const [
+									Icon(
+										Icons.manage_accounts_outlined
+									),
+									SizedBox(width: 7),
+									Text('My Account'),
+								],
+							),
 						),
 					),
 					Padding(
-						padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
-						child: Row(
-							children: [
-								 const Icon(
-									Icons.people_outline
-								),
-								const SizedBox(width: 7),
-								InkWell(
-									onTap: () => Navigator.pushNamed(context, '/about'),
-									child: const Text('About Us'),
-								),
-							],
+						padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
+						child: InkWell(
+							onTap: () => Navigator.pushNamed(context, '/about'),
+							child: Row(
+								children: const [
+									Icon(
+										Icons.people_outline
+									),
+									SizedBox(width: 7),
+									Text('About Us'),
+								],
+							),
 						),
 					),
 					const Spacer(),
@@ -71,24 +71,24 @@ class CustomDrawer extends StatelessWidget {
 						color: Colors.grey[700]
 					),
 					Padding(
-						padding: const EdgeInsets.fromLTRB(20, 10, 0, 20),
-						child: Row(
-							children: [
-								const Icon(
-									Icons.lock_outline
-								),
-								const SizedBox(width: 7),
-								InkWell(
-									onTap: () => alertPopUp(
-										'Sign Out?', 
-										'Are you sure you want to sign out of Campus Connect? Be notified that doing so will make you lose all your work in progress (if any)', 
-										context
+						padding: const EdgeInsets.fromLTRB(20, 10, 0, 15),
+						child: InkWell(
+							onTap: () => alertPopUp(
+								'Sign Out?', 
+								'Are you sure you want to sign out of Campus Connect? Be notified that doing so will make you lose all your work in progress (if any)', 
+								context
+							),
+							child: Row(
+								children: const [
+									Icon(
+										Icons.lock_outline
 									),
-									child: const Text('Sign Out'),
-								),
-							],
+									SizedBox(width: 7),
+									Text('Sign Out'),
+								],
+							),
 						),
-					),
+					)
 				]
 			),
 		);

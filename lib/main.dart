@@ -39,5 +39,5 @@ void main() => runApp(MaterialApp(
 		),
 
 		errorColor: Colors.red[600]
-  ),
+  )
 ));

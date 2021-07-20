@@ -33,26 +33,28 @@ class SinglePost extends StatelessWidget {
 								onPressed: () => Navigator.pop(context),
 							),
 							Padding(
-								padding: const EdgeInsets.fromLTRB(20, 60, 20, 0.0), // for relative padding according to screen size (not absolute padding)
+								padding: const EdgeInsets.fromLTRB(10, 60, 10, 0.0), // for relative padding according to screen size (not absolute padding)
 								child: Center(
 									child: Column(
 										children: [
 											Text(args['title'], 
 												style: TextStyle(
 													color: Colors.red[800], 
-													fontWeight: FontWeight.bold, 
-													fontSize: 16
+													// fontWeight: FontWeight.bold,
+													fontFamily: 'Ottoman',
+													fontSize: 20
 												)
 											),
 											const SizedBox(height: 15.0),
 											Card(
 												elevation: 5.0,
 												child: Padding(
-													padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+													padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
 													child: SelectableText('${args['body']} \n', 
 														style: const TextStyle(
-															wordSpacing: 2,
-															fontSize: 17
+															fontSize: 20, 
+															fontFamily: 'Cormorant-Light'
+															// fontWeight: FontWeight.bold
 														)
 													),
 												)
@@ -67,7 +69,8 @@ class SinglePost extends StatelessWidget {
 														
 													),
 												),
-											)
+											),
+											const SizedBox(height: 8.0),
 										]
 									),
 								),
